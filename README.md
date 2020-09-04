@@ -18,3 +18,6 @@ pip3 install -r requirements.txt
 ```
 
 If you are using Windows remove the 3 from the command.
+
+# Usage
+The two current ways to get a comic is by either using the comic number or its title. The title method is still a work in progress. You can also just get information about the specified comic, if that is what you are looking for.
