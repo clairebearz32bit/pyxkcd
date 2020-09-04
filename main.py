@@ -18,6 +18,7 @@ MONTHS = {
     '12': 'December'
 }
 
+
 class xkcd:
     main_uri = 'https://xkcd.com/{}/info.0.json'
     img_link = 'https://imgs.xkcd.com/comics/{}.png'
@@ -28,15 +29,13 @@ class xkcd:
         try:
             self.comic_title = comic_title.lower().replace(' ', '-')
 
-        except:
+        except AttributeError:
             self.comic_title = comic_title
 
     def get_comic_info(self):
         return requests.get(self.main_uri.format(self.comic_number)).json()
 
     def get_comic(self):
-        r = None
-
         if self.comic_number is None:
             r = requests.get(self.img_link.format(self.comic_title), stream=True)
 
@@ -93,6 +92,7 @@ def main():
 
     if args.print_info:
         comic.print_comic_info()
+
 
 if __name__ == '__main__':
     main()
